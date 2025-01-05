@@ -1,8 +1,9 @@
+
 // Variables override
-$body-bg: #f5f8fa;
+$body-bg: #f2f7f8;
 $theme-colors: (
-  'primary': #4bc06a,
-  'success': #4bc06a,
+  'primary': #0e7d9f,
+  'success': #0e7d9f,
   'warning': #e7b332,
   'danger': #d04949,
   'light': #d8d8d8,
@@ -15,7 +16,7 @@ $font-family-sans-serif: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
 
 :root {
   --gray-bg: rgb(245 248 250);
-  --primary-lighter: #defff0;
+  --primary-lighter: #9fdff2;
   --warning-lighter: #fff8c6;
   --gray-100: #f8f8f8;
   --gray-200: #dee1e2;
@@ -24,7 +25,7 @@ $font-family-sans-serif: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
   --gray-500: #a3a8ad;
   --gray-600: #888e94;
   --gray-700: #495057;
-  --gray-900: #181818;
+  --gray-900: #050b26;
   --header-height: 50px;
 }
 
@@ -36,6 +37,7 @@ $font-family-sans-serif: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
 
 // Fonts
 @import 'fonts';
+
 
 html {
   font-size: 13px;

@@ -66,42 +66,7 @@ function ChartSelector({
         </Col>
       </Row>
       <Row>
-        <Col xs={3} className="pt-3">
-          {currentChart && (
-            <Card className={styles.currentChart}>
-              <Card.Img variant="top" src={currentChart.metadata.thumbnail} />
-              <Card.Body>
-                <Card.Title className="m-0">
-                  <h2 className="m-0">{currentChart.metadata.name}</h2>
-                </Card.Title>
-                <Card.Subtitle className="m-0">
-                  <h4 className="mb-2">{currentChart.metadata.category}</h4>
-                </Card.Subtitle>
-                <Card.Text>{currentChart.metadata.description}</Card.Text>
-                <Card.Link
-                  className={classNames({
-                    [styles.disabled]: !currentChart.metadata.code,
-                    underlined: true,
-                  })}
-                  href={currentChart.metadata.code}
-                  target="_blank"
-                >
-                  <BsLink color="black" /> Code
-                </Card.Link>
-                <Card.Link
-                  className={classNames({
-                    [styles.disabled]: !currentChart.metadata.tutorial,
-                    underlined: true,
-                  })}
-                  href={currentChart.metadata.tutorial}
-                  target="_blank"
-                >
-                  <BsLink color="black" /> Tutorial
-                </Card.Link>
-              </Card.Body>
-            </Card>
-          )}
-        </Col>
+     
         <Col>
           <Row>
             {charts.map((d, i) => {
@@ -118,7 +83,13 @@ function ChartSelector({
                   >
                     <div
                       className={`h-100 w-25 ${styles.thumbnail}`}
-                      style={{ backgroundImage: `url("${d.metadata.icon}")` }}
+                      style={{ 
+                        // backgroundImage: `url("${d.metadata.icon}")`,
+                
+                        mask: `url("${d.metadata.icon}") no-repeat`,
+                        maskSize: 'contain',
+                        backgroundColor: '#0e7d9f'
+                      }}
                     ></div>
                     <Card.Body className="w-75 px-2 py-3">
                       <Card.Title className="m-0">
@@ -189,6 +160,42 @@ function ChartSelector({
               </Card>
             </Col>
           </Row>
+        </Col>
+        <Col xs={3} className="pt-3">
+          {currentChart && (
+            <Card className={styles.currentChart}>
+              <Card.Img variant="top" src={currentChart.metadata.thumbnail} />
+              <Card.Body>
+                <Card.Title className="m-0">
+                  <h2 className="m-0">{currentChart.metadata.name}</h2>
+                </Card.Title>
+                <Card.Subtitle className="m-0">
+                  <h4 className="mb-2">{currentChart.metadata.category}</h4>
+                </Card.Subtitle>
+                <Card.Text>{currentChart.metadata.description}</Card.Text>
+                <Card.Link
+                  className={classNames({
+                    [styles.disabled]: !currentChart.metadata.code,
+                    underlined: true,
+                  })}
+                  href={currentChart.metadata.code}
+                  target="_blank"
+                >
+                  <BsLink color="black" /> Code
+                </Card.Link>
+                <Card.Link
+                  className={classNames({
+                    [styles.disabled]: !currentChart.metadata.tutorial,
+                    underlined: true,
+                  })}
+                  href={currentChart.metadata.tutorial}
+                  target="_blank"
+                >
+                  <BsLink color="black" /> Tutorial
+                </Card.Link>
+              </Card.Body>
+            </Card>
+          )}
         </Col>
       </Row>
     </>

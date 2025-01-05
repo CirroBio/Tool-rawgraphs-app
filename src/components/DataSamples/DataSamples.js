@@ -251,6 +251,7 @@ const samplesList = [
   //   sourceURL: '',
   // },
 ]
+
 export default function DataSamples({ onSampleReady, setLoadingError }) {
   const select = async (sample) => {
     const { delimiter, url } = sample

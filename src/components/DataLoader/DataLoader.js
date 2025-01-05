@@ -319,55 +319,7 @@ function DataLoader({
             )}
           </Col>
         )}
-        {userData && (
-          <Col
-            xs={3}
-            lg={2}
-            className="d-flex flex-column justify-content-start pl-3 pr-0 options"
-          >
-            <ParsingOptions
-              locale={locale}
-              setLocale={setLocale}
-              separator={separator}
-              setSeparator={setSeparator}
-              thousandsSeparator={thousandsSeparator}
-              setThousandsSeparator={setThousandsSeparator}
-              decimalsSeparator={decimalsSeparator}
-              setDecimalsSeparator={setDecimalsSeparator}
-              dimensions={data ? unstackedColumns || data.dataTypes : []}
-              stackDimension={stackDimension}
-              setStackDimension={handleStackOperation}
-              userDataType={userDataType}
-              dataSource={dataSource}
-              onDataRefreshed={(rawInput) => setUserInput(rawInput, dataSource)}
-            />
-
-            <div className="divider mb-3 mt-0" />
-
-            <div
-              className={`w-100 mb-2 d-flex justify-content-center align-items-center ${styles['start-over']} user-select-none cursor-pointer`}
-              onClick={reloadRAW}
-            >
-              <BsArrowRepeat className="mr-2" />
-              <h4 className="m-0 d-inline-block">{'Reset'}</h4>
-            </div>
-
-            <div
-              className={`w-100 d-flex justify-content-center align-items-center ${styles['start-over']} user-select-none cursor-pointer`}
-              onClick={() => {
-                setInitialOptionState(dataSource)
-                const dataSourceIndex = options.findIndex(
-                  (opt) => opt.id === dataSource?.type
-                )
-                setOptionIndex(Math.max(dataSourceIndex, 0))
-                startDataReplace()
-              }}
-            >
-              <BsArrowCounterclockwise className="mr-2" />
-              <h4 className="m-0 d-inline-block">{'Change data'}</h4>
-            </div>
-          </Col>
-        )}
+     
         <Col>
           <Row className="h-100">
             <Col className="h-100">
@@ -415,6 +367,31 @@ function DataLoader({
                 />
               )}
             </Col>
+            {userData && (
+          <Col
+            xs={3}
+            lg={2}
+            className="d-flex flex-column justify-content-start pl-3 pr-0 options"
+          >
+            <ParsingOptions
+              locale={locale}
+              setLocale={setLocale}
+              separator={separator}
+              setSeparator={setSeparator}
+              thousandsSeparator={thousandsSeparator}
+              setThousandsSeparator={setThousandsSeparator}
+              decimalsSeparator={decimalsSeparator}
+              setDecimalsSeparator={setDecimalsSeparator}
+              dimensions={data ? unstackedColumns || data.dataTypes : []}
+              stackDimension={stackDimension}
+              setStackDimension={handleStackOperation}
+              userDataType={userDataType}
+              dataSource={dataSource}
+              onDataRefreshed={(rawInput) => setUserInput(rawInput, dataSource)}
+            />
+
+          </Col>
+        )}
           </Row>
         </Col>
       </Row>

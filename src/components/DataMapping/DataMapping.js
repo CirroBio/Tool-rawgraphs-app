@@ -178,20 +178,6 @@ function DataMapping({ dataTypes, dimensions, mapping, setMapping }, ref) {
   return (
     <DndProvider backend={HTML5Backend}>
       <Row>
-        <Col xs={3}>
-          <h5 className="text-uppercase">Dimensions</h5>
-          {map(dataTypes, (dataType, columnName) => {
-            return (
-              <ColumnCard
-                key={columnName}
-                dimensionName={columnName}
-                dimensionType={dataType}
-                commitLocalMapping={commitLocalMapping}
-                rollbackLocalMapping={rollbackLocalMapping}
-              />
-            )
-          })}
-        </Col>
         <Col>
           <h5 className="text-uppercase">Chart Variables</h5>
           <Row
@@ -219,6 +205,20 @@ function DataMapping({ dataTypes, dimensions, mapping, setMapping }, ref) {
               )
             })}
           </Row>
+        </Col>
+        <Col xs={3}>
+          <h5 className="text-uppercase">Dimensions</h5>
+          {map(dataTypes, (dataType, columnName) => {
+            return (
+              <ColumnCard
+                key={columnName}
+                dimensionName={columnName}
+                dimensionType={dataType}
+                commitLocalMapping={commitLocalMapping}
+                rollbackLocalMapping={rollbackLocalMapping}
+              />
+            )
+          })}
         </Col>
       </Row>
     </DndProvider>

@@ -66,16 +66,7 @@ const ChartPreviewWithOptions = ({
 
   return (
     <Row>
-        <ChartOptions
-          chart={chart}
-          dataset={dataset}
-          mapping={mapping}
-          dataTypes={dataTypes}
-          visualOptions={visualOptions}
-          setVisualOptions={setVisualOptions}
-          error={error}
-          mappedData={mappedData}
-        />
+
         <ChartPreview
           chart={chart}
           dataset={dataset}
@@ -85,6 +76,16 @@ const ChartPreviewWithOptions = ({
           error={error}
           setError={setError}
           setRawViz={setRawViz}
+          mappedData={mappedData}
+        />
+                <ChartOptions
+          chart={chart}
+          dataset={dataset}
+          mapping={mapping}
+          dataTypes={dataTypes}
+          visualOptions={visualOptions}
+          setVisualOptions={setVisualOptions}
+          error={error}
           mappedData={mappedData}
         />
     </Row>

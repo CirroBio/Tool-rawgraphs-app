@@ -16,7 +16,6 @@ export default function Section(props) {
             <h1>{props.title}</h1>
             { props.loading && <Spinner animation="border" variant="primary" style={{width:'2rem', height:'2rem',borderWidth:'2px',marginLeft:'2rem'}} />}
           </div>
-          
           {props.children}
         </Col>
       </Row>
