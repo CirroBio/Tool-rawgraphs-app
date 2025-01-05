@@ -1,26 +1,25 @@
-import React, { useState, useCallback, useMemo, useEffect, useRef } from 'react'
 import {
-  getOptionsConfig,
   getDefaultOptionsValues,
-  deserializeProject,
+  getOptionsConfig,
+  serializeProject
 } from '@rawgraphs/rawgraphs-core'
-import Section from './components/Section'
-import ScreenSizeAlert from './components/ScreenSizeAlert'
-import DataLoader from './components/DataLoader'
-import ChartSelector from './components/ChartSelector'
-import DataMapping from './components/DataMapping'
-import ChartPreviewWithOptions from './components/ChartPreviewWIthOptions'
-import Exporter from './components/Exporter'
-import get from 'lodash/get'
 import find from 'lodash/find'
-import usePrevious from './hooks/usePrevious'
-import { serializeProject } from '@rawgraphs/rawgraphs-core'
-import baseCharts from './charts'
-import useSafeCustomCharts from './hooks/useSafeCustomCharts'
-import useDataLoader from './hooks/useDataLoader'
+import get from 'lodash/get'
 import isPlainObject from 'lodash/isPlainObject'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import baseCharts from './charts'
+import ChartPreviewWithOptions from './components/ChartPreviewWIthOptions'
+import ChartSelector from './components/ChartSelector'
 import CustomChartLoader from './components/CustomChartLoader'
 import CustomChartWarnModal from './components/CustomChartWarnModal'
+import DataLoader from './components/DataLoader'
+import DataMapping from './components/DataMapping'
+import Exporter from './components/Exporter'
+import ScreenSizeAlert from './components/ScreenSizeAlert'
+import Section from './components/Section'
+import useDataLoader from './hooks/useDataLoader'
+import usePrevious from './hooks/usePrevious'
+import useSafeCustomCharts from './hooks/useSafeCustomCharts'
 
 
 // #TODO: i18n
@@ -130,7 +129,7 @@ function App() {
     //       console.log(`Can't load ${projectUrl}`, err)
     //     }
     //   )
-  }, [])
+  }, [loadSample])
 
   //resetting mapping when column names changes (ex: separator change in parsing)
   useEffect(() => {

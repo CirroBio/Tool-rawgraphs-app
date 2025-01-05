@@ -1,32 +1,31 @@
+import { tsvFormat } from 'd3-dsv'
 import { get } from 'lodash'
 import React, { useCallback, useState } from 'react'
 import { Col, Row } from 'react-bootstrap'
 import {
-  BsArrowCounterclockwise,
   BsArrowRepeat,
   BsClipboard,
   BsCloud,
   BsFolder,
   BsGift,
   BsSearch,
-  BsUpload,
+  BsUpload
 } from 'react-icons/bs'
 import { DATA_LOADER_MODE } from '../../hooks/useDataLoader'
+import { CopyToClipboardButton } from '../CopyToClipboardButton'
 import DataGrid from '../DataGrid/DataGrid'
 import DataSamples from '../DataSamples/DataSamples'
 import JsonViewer from '../JsonViewer'
 import ParsingOptions from '../ParsingOptions'
+import WarningMessage from '../WarningMessage'
 import styles from './DataLoader.module.scss'
+import DataMismatchModal from './DataMismatchModal'
 import LoadProject from './loaders/LoadProject'
 import Paste from './loaders/Paste'
+import SparqlFetch from './loaders/SparqlFetch'
 import UploadFile from './loaders/UploadFile'
 import UrlFetch from './loaders/UrlFetch'
 import Loading from './loading'
-import WarningMessage from '../WarningMessage'
-import DataMismatchModal from './DataMismatchModal'
-import SparqlFetch from './loaders/SparqlFetch'
-import { tsvFormat } from 'd3-dsv'
-import { CopyToClipboardButton } from '../CopyToClipboardButton'
 
 function DataLoader({
   userInput,
@@ -61,7 +60,7 @@ function DataLoader({
   hydrateFromProject,
 }) {
   const [loadingError, setLoadingError] = useState()
-  const [initialOptionState, setInitialOptionState] = useState(null)
+  const [initialOptionState] = useState(null)
 
   const options = [
     {
